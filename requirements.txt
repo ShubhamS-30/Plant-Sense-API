@@ -1,5 +1,5 @@
 
-gunicorn == 21.20
+gunicorn == 21.20.0
 
 flask == 2.2.2
 
