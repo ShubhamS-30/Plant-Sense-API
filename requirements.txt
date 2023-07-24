@@ -1,0 +1,12 @@
+
+gunicorn == 21.20
+
+flask == 2.2.2
+
+jsonpickle == 3.0.1
+
+numpy == 1.22.1
+
+opencv-python == 4.7.0.68
+
+tensorflow == 2.12.0
