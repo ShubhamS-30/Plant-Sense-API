@@ -121,3 +121,7 @@ if __name__ == '__main__':
     
     
 # command to run - > python -m flask --app app run
+# or
+# python -m flask run
+# or
+# python app.py
