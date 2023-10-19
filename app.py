@@ -177,11 +177,6 @@ def species_diseases(species):
 
         return Response(response=response_pickled, status=200, mimetype="application/json")
     else:
-        res = {
-            "message": "Request recieved!!",
-            "Diseases": [],
-        }
-        
         abort(404)
 
 
