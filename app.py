@@ -148,8 +148,9 @@ def information(name):
 
 
 @app.route('/api/dict/species', methods=['GET'])
-def species():
-
+def get_species():
+    
+    
     res = {
         "message": "Request recieved!!",
         "Species": species,
