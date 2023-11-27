@@ -19,31 +19,22 @@ labels_path = 'labels.txt'
 # number of classes with highest confidence
 pred_num = 1
 
-# Species of plants
-species = ["Tomato", "Cabbage", "Maize", "Soy"]
+diseases = {
+    "Tomato" : ["Tomato Septoria Leaf Spot", "Tomato Bacterial Spot", "Tomato Blight", "Tomato Spider Mite", "Tomato Leaf Mold", "Tomato Yellow Leaf Curl Virus"],
+    "Cabbage":["Cabbage Black Rot"],
+    "Maize":["Maize Ravi Corn Rust", "Maize Grey Leaf Spot", "Maize Lethal Necrosis"],
+    "Soy":["Soy Frogeye Leaf Spot", "Soy Downy Mildew"],
+}
 
-# Diseases
-diseases = [["Tomato Septoria Leaf Spot", "Tomato Bacterial Spot", "Tomato Blight", "Tomato Spider Mite", "Tomato Leaf Mold", "Tomato Yellow Leaf Curl Virus"], [
-    "Cabbage Black Rot"], ["Maize Ravi Corn Rust", "Maize Grey Leaf Spot", "Maize Lethal Necrosis"], ["Soy Frogeye Leaf Spot", "Soy Downy Mildew"]]
-
-# dict to store different species
-species_dict = {"Tomato": 0,
-                "Cabbage": 1,
-                "Maize": 2,
-                "Soy": 3
-                }
 
 # returns labels as a map
-
-
 def get_labels():
     with open(labels_path, 'r') as f:
         labels = list(map(str.strip, f.readlines()))
     return labels
 
-# returns preductions of the uploaded image
-
-
+# returns predictions of the uploaded image
+# function to inference the model
 def predictions(img):
 
     # loading the model
@@ -102,7 +93,7 @@ def predictions(img):
 
 # route http posts to this method
 
-
+# send and recieve image classification result to user
 @app.route('/api/test', methods=['POST'])
 def test():
     r = request
@@ -125,7 +116,7 @@ def test():
 
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
-
+# function to return info about a disease
 @app.route('/api/info/<name>', methods=['GET'])
 def information(name):
 
@@ -146,28 +137,25 @@ def information(name):
 
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
-
+# function to send the names of species in database to user.
 @app.route('/api/dict/species', methods=['GET'])
 def get_species():
     
-    
     res = {
         "message": "Request recieved!!",
-        "Species": species,
+        "Species": list(diseases.keys()),
     }
-
     response_pickled = jsonpickle.encode(res)
 
     return Response(response=response_pickled, status=200, mimetype="application/json")
 
-
+# function that returns diseases in the database related to particular specie
 @app.route('/api/dict/species/<species>', methods=['GET'])
 def species_diseases(species):
 
-    if species in species_dict.keys():
-        id = species_dict.get(species)
+    if species in diseases.keys():
 
-        diseases_list = diseases[id]
+        diseases_list = diseases[species]
 
         res = {
             "message": "Request recieved!!",
