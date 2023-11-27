@@ -83,7 +83,7 @@ def predictions(img):
         lbl = labs[pred_num_indices[i]]
 
         # adding confidence to scores
-        scores.append(str(score))
+        scores.append(str(score)[0:6])
 
         # adding to label to lbls
         lbls.append(lbl)
@@ -106,6 +106,9 @@ def test():
     
     # removing whitespaces
     labels = [x.replace("_", " ") for x in labels]
+    
+    # scores = [ '%.2f' % score*100 for score in scores]
+    
     # build a response dict to send back to client
     res = {
         "message": "Image recieved!!",
