@@ -1,5 +1,5 @@
 Tomato_Healthy
-Tomato_Septoria_Leaf Spot
+Tomato_Septoria_Leaf_Spot
 Tomato_Bacterial_Spot
 Tomato_Blight
 Cabbage_Healthy

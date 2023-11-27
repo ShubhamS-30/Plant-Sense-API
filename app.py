@@ -103,6 +103,9 @@ def test():
 
     # processing
     labels, scores = predictions(img)
+    
+    # removing whitespaces
+    labels = [x.replace("_", " ") for x in labels]
     # build a response dict to send back to client
     res = {
         "message": "Image recieved!!",
