@@ -26,7 +26,6 @@ diseases = {
     "Soy":["Soy Frogeye Leaf Spot", "Soy Downy Mildew"],
 }
 
-
 # returns labels as a map
 def get_labels():
     with open(labels_path, 'r') as f:
