@@ -20,7 +20,7 @@ labels_path = 'labels.txt'
 pred_num = 3
 
 diseases = {
-    "Tomato" : ["Tomato Septoria Leaf Spot", "Tomato Bacterial Spot", "Tomato Blight", "Tomato Spider Mite", "Tomato Leaf Mold", "Tomato Yellow Leaf Curl Virus"],
+    "Tomato" : ["Tomato Septoria", "Tomato Bacterial Spot", "Tomato Blight", "Tomato Spider Mite", "Tomato Leaf Mold", "Tomato Yellow Leaf Curl Virus"],
     "Cabbage":["Cabbage Black Rot"],
     "Maize":["Maize Ravi Corn Rust", "Maize Grey Leaf Spot", "Maize Lethal Necrosis"],
     "Soy":["Soy Frogeye Leaf Spot", "Soy Downy Mildew"],
