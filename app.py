@@ -17,7 +17,7 @@ model_path = 'model.tflite'
 labels_path = 'labels.txt'
 
 # number of classes with highest confidence
-pred_num = 1
+pred_num = 3
 
 diseases = {
     "Tomato" : ["Tomato Septoria Leaf Spot", "Tomato Bacterial Spot", "Tomato Blight", "Tomato Spider Mite", "Tomato Leaf Mold", "Tomato Yellow Leaf Curl Virus"],
